@@ -16,24 +16,31 @@ namespace DataAccessLayer.Concrete.Repositories
 
         public GenericRepository()
         {
-            _object=c.Set<T>();
+            _object = c.Set<T>();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
         }
 
         void IRepository<T>.Delete(T p)
         {
-            _object.Remove(p);
+            var deletedEntity = c.Entry(p);
+            deletedEntity.State = EntityState.Deleted;
             c.SaveChanges();
         }
 
         void IRepository<T>.Insert(T p)
         {
-            _object.Add(p);
+            var addedEntity = c.Entry(p);
+            addedEntity.State = EntityState.Added;
             c.SaveChanges();
         }
 
         List<T> IRepository<T>.List()
         {
-           return _object.ToList();
+            return _object.ToList();
         }
 
         List<T> IRepository<T>.List(Expression<Func<T, bool>> filter)
@@ -43,7 +50,10 @@ namespace DataAccessLayer.Concrete.Repositories
 
         void IRepository<T>.Update(T p)
         {
+            var updatedEntity = c.Entry(p);
+            updatedEntity.State = EntityState.Modified;
             c.SaveChanges();
+
         }
     }
 }

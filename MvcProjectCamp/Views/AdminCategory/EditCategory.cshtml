@@ -1,0 +1,21 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+{
+    <div class="form-group">
+
+       @Html.TextBoxFor(x=>x.CategoryId, new { style = "display: none;" })
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control mt-2" })
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger  mt-2" })
+        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control mt-2", @cols = 80, @rows = 10 })
+        @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-danger  mt-2" })
+        <br />
+        <button class="btn btn-success"><i class="fas fa-sync mr-2"></i>Güncelle</button>
+    </div>
+}

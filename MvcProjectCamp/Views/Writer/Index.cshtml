@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+
+<table class="table table-secondary table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th class="text-center col-1">#</th>
+            <th class="col-1">Yazar Adı</th>
+            <th class="col-1">Yazar Soyadı</th>
+            <th class="col-1">Görsel</th>
+            <th class="col-4">İçerik</th>
+            <th class="col-1">Mail</th>
+            <th class="col-1">Şifre</th>
+            <th class="text-center col-2">İşlemler</th>
+            
+        </tr>
+    </thead>
+    <tbdoy>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th class="text-center bg-gradient-gray">@item.WriterId</th>
+                <td> @item.WriterName</td>
+                <td> @item.WriterSurname</td>
+                <td class="text-center "> <img src="@item.WriterImage" alt="@item.WriterName" /></td>
+                <td> @item.Contents</td>
+                <td> @item.WriterMail</td>
+                <td> @item.WriterPassword</td>
+                <td class="text-center ">
+                    <a href="/WriterCategory/DeleteWriter/@item.WriterId" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                    <a href="/WriterCategory/EditWriter/@item.WriterId" class="btn btn-outline-secondary"><i class="fas fa-edit"></i></a>
+                </td>
+            </tr>
+        }
+    </tbdoy>
+</table>
+<a class="btn btn-outline-primary mt-2" href="/Writer/AddWriter"><i class="fas fa-plus mr-2"></i>Yeni Yazar</a>
