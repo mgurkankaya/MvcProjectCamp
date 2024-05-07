@@ -72,6 +72,30 @@
     <Compile Include="Migrations\202404240830284_writer-id-column-added.Designer.cs">
       <DependentUpon>202404240830284_writer-id-column-added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405020747357_mig-about-column-added-on-writer-table.cs" />
+    <Compile Include="Migrations\202405020747357_mig-about-column-added-on-writer-table.Designer.cs">
+      <DependentUpon>202405020747357_mig-about-column-added-on-writer-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405021018182_mig-writerTitle-column-added-on-writer-table.cs" />
+    <Compile Include="Migrations\202405021018182_mig-writerTitle-column-added-on-writer-table.Designer.cs">
+      <DependentUpon>202405021018182_mig-writerTitle-column-added-on-writer-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405030840187_mig_writerImg_column_size_changed.cs" />
+    <Compile Include="Migrations\202405030840187_mig_writerImg_column_size_changed.Designer.cs">
+      <DependentUpon>202405030840187_mig_writerImg_column_size_changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405061002209_mig-writer-status-column-added.cs" />
+    <Compile Include="Migrations\202405061002209_mig-writer-status-column-added.Designer.cs">
+      <DependentUpon>202405061002209_mig-writer-status-column-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405070622217_mig-content-status-added.cs" />
+    <Compile Include="Migrations\202405070622217_mig-content-status-added.Designer.cs">
+      <DependentUpon>202405070622217_mig-content-status-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405070625118_mig-heading-status-added.cs" />
+    <Compile Include="Migrations\202405070625118_mig-heading-status-added.Designer.cs">
+      <DependentUpon>202405070625118_mig-heading-status-added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +112,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202404240830284_writer-id-column-added.resx">
       <DependentUpon>202404240830284_writer-id-column-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405020747357_mig-about-column-added-on-writer-table.resx">
+      <DependentUpon>202405020747357_mig-about-column-added-on-writer-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405021018182_mig-writerTitle-column-added-on-writer-table.resx">
+      <DependentUpon>202405021018182_mig-writerTitle-column-added-on-writer-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405030840187_mig_writerImg_column_size_changed.resx">
+      <DependentUpon>202405030840187_mig_writerImg_column_size_changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405061002209_mig-writer-status-column-added.resx">
+      <DependentUpon>202405061002209_mig-writer-status-column-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405070622217_mig-content-status-added.resx">
+      <DependentUpon>202405070622217_mig-content-status-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405070625118_mig-heading-status-added.resx">
+      <DependentUpon>202405070625118_mig-heading-status-added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

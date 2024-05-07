@@ -1,0 +1,38 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yazar Ekle</h2>
+
+@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control mt-2", @placeholder = "Yazar Adı" })
+        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger  mt-2" })
+
+        @Html.TextBoxFor(x => x.WriterSurname, new { @class = "form-control mt-2", @placeholder = "Yazar Soyadı" })
+        @Html.ValidationMessageFor(x => x.WriterSurname, "", new { @class = "text-danger  mt-2" })
+
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control mt-2", @placeholder = "Görsel URL" })
+
+
+
+        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control mt-2", @placeholder = "Yazar Mail" })
+
+
+
+        @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control mt-2", @placeholder = "Yazar Hakkında", @cols = 80, @rows = 5 })
+        @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-danger  mt-2" })
+
+        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control mt-2", @placeholder = "Yazar Şifre" })
+
+
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control mt-2", @placeholder = "Yazar Başlık" })
+        @Html.ValidationMessageFor(x => x.WriterTitle, "", new { @class = "text-danger  mt-2" })
+        <br />
+        <button class="btn btn-danger"><i class="fas fa-save mr-2"></i>Kaydet</button>
+    </div>
+}

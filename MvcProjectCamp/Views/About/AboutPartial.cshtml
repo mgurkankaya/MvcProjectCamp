@@ -1,0 +1,20 @@
+﻿<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Ekle</button>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="Modal1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda</h2>
+            </div>
+
+            <form action="/About/AddAbout" method="post">
+                <div class="modal-body">
+                    <textarea name="AboutDetails1" class="form-control  mt-2" rows="3" placeholder="Hakkımızda Paragraf 1"></textarea>
+                    <textarea name="AboutDetails2" class="form-control  mt-2" rows="3" placeholder="Hakkımızda Paragraf 2"></textarea>
+                    <input type="text" name="AboutImage1" class="form-control mt-2" placeholder="Hakkımızda Görsel 1" />
+                    <input type="text" name="AboutImage2" class="form-control mt-2" placeholder="Hakkımızda Görsel 2" />
+                    <div class="col-12"> <button class="btn btn-outline-success mt-2">Ekle</button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
