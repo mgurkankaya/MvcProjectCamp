@@ -52,10 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Class1.cs" />
@@ -63,10 +66,13 @@
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="Concrete\Repositories\IRepository.cs" />
     <Compile Include="EntityFramework\EFAboutDal.cs" />
+    <Compile Include="EntityFramework\EfAdminDal.cs" />
     <Compile Include="EntityFramework\EFCategoryDal.cs" />
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
     <Compile Include="EntityFramework\EFHeadingDal.cs" />
+    <Compile Include="EntityFramework\EFImageFileDal.cs" />
+    <Compile Include="EntityFramework\EFMessageDal.cs" />
     <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202404240830284_writer-id-column-added.cs" />
     <Compile Include="Migrations\202404240830284_writer-id-column-added.Designer.cs">
@@ -95,6 +101,26 @@
     <Compile Include="Migrations\202405070625118_mig-heading-status-added.cs" />
     <Compile Include="Migrations\202405070625118_mig-heading-status-added.Designer.cs">
       <DependentUpon>202405070625118_mig-heading-status-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405080641033_mig-message-table-added.cs" />
+    <Compile Include="Migrations\202405080641033_mig-message-table-added.Designer.cs">
+      <DependentUpon>202405080641033_mig-message-table-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405081046116_mig-messageData-column-added-on-contact-table.cs" />
+    <Compile Include="Migrations\202405081046116_mig-messageData-column-added-on-contact-table.Designer.cs">
+      <DependentUpon>202405081046116_mig-messageData-column-added-on-contact-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405090744150_mig-img-table-added.cs" />
+    <Compile Include="Migrations\202405090744150_mig-img-table-added.Designer.cs">
+      <DependentUpon>202405090744150_mig-img-table-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405090842224_added-admin-table.cs" />
+    <Compile Include="Migrations\202405090842224_added-admin-table.Designer.cs">
+      <DependentUpon>202405090842224_added-admin-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405091050260_admin-status-column-added-on-admin-table.cs" />
+    <Compile Include="Migrations\202405091050260_admin-status-column-added-on-admin-table.Designer.cs">
+      <DependentUpon>202405091050260_admin-status-column-added-on-admin-table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,6 +156,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405070625118_mig-heading-status-added.resx">
       <DependentUpon>202405070625118_mig-heading-status-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405080641033_mig-message-table-added.resx">
+      <DependentUpon>202405080641033_mig-message-table-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405081046116_mig-messageData-column-added-on-contact-table.resx">
+      <DependentUpon>202405081046116_mig-messageData-column-added-on-contact-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405090744150_mig-img-table-added.resx">
+      <DependentUpon>202405090744150_mig-img-table-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405090842224_added-admin-table.resx">
+      <DependentUpon>202405090842224_added-admin-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405091050260_admin-status-column-added-on-admin-table.resx">
+      <DependentUpon>202405091050260_admin-status-column-added-on-admin-table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

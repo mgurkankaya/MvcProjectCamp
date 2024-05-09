@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         Contact GetbyId(int id);
         void ContactDeleteBl(Contact contact);
         void ContactUpdateBl(Contact contact);
+        
     }
 }

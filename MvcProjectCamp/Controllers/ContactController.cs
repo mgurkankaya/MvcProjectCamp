@@ -1,8 +1,11 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +16,7 @@ namespace MvcProjectCamp.Controllers
     {
         ContactManager cm = new ContactManager(new EFContactDal());
         ContactValidator cv = new ContactValidator();
+        MessageManager mm = new MessageManager(new EFMessageDal());
         public ActionResult Index()
         {
             var value = cm.GetList();
@@ -27,6 +31,9 @@ namespace MvcProjectCamp.Controllers
 
         public PartialViewResult ContactSideBar()
         {
+            ViewBag.a1=cm.GetList().Count();
+            ViewBag.a2 = mm.GetListInbox().Count();
+            ViewBag.a3 = mm.GetListSendBox().Count();
             return PartialView();
         }
     }
