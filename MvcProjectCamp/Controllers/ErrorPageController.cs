@@ -8,6 +8,7 @@ namespace MvcProjectCamp.Controllers
 {
     public class ErrorPageController : Controller
     {
+        [AllowAnonymous]
         // GET: ErrorPage
         public ActionResult Page403()
         {

@@ -122,6 +122,10 @@
     <Compile Include="Migrations\202405091050260_admin-status-column-added-on-admin-table.Designer.cs">
       <DependentUpon>202405091050260_admin-status-column-added-on-admin-table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202405150819118_for_primary_key_error.cs" />
+    <Compile Include="Migrations\202405150819118_for_primary_key_error.Designer.cs">
+      <DependentUpon>202405150819118_for_primary_key_error.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202405091050260_admin-status-column-added-on-admin-table.resx">
       <DependentUpon>202405091050260_admin-status-column-added-on-admin-table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405150819118_for_primary_key_error.resx">
+      <DependentUpon>202405150819118_for_primary_key_error.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

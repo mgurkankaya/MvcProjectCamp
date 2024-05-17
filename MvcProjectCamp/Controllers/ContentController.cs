@@ -21,5 +21,17 @@ namespace MvcProjectCamp.Controllers
             var value = cm.GetListById(id);
             return View(value);
         }
+
+        public PartialViewResult GetAllContent(string p)
+        {
+            var value = cm.GetList(p);
+            return PartialView(value);
+        }
+
+        public ActionResult ListAllContent(string p="")
+        {
+            var value = cm.GetList(p);
+            return View(value);
+        }
     }
 }

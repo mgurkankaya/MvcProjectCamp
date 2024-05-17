@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+
+@using (Html.BeginForm("ListAllContent", "Content", FormMethod.Post, new { @class = "form-inline ml-3" }))
+{
+    <div class="input-group input-group-sm">
+        @Html.TextBox("p","", new { @class = "form-control form-control-navbar",@placeholder = "Sözlükte Ara" })
+        <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+}

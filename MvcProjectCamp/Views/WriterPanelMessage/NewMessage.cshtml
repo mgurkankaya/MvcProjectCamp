@@ -1,0 +1,108 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        @Html.Action("MessageSideBar", "WriterPanelMessage")
+
+        <!-- /.col -->
+
+        <div class="col-md-9">
+            @using (Html.BeginForm("NewMessage", "WriterPanelMessage", FormMethod.Post))
+            {
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.ReceiverMail, new { @class = "form-control mt-2", @placeholder = "Kime:" })
+                            @Html.ValidationMessageFor(x => x.ReceiverMail, "", new { @class = "text-danger  mt-2" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Subject, new { @class = "form-control mt-2", @placeholder = "Konu:" })
+                            @Html.ValidationMessageFor(x => x.Subject, "", new { @class = "text-danger  mt-2" })
+                        </div>
+                        <div class="form-group">
+                            <textarea id="compose-textarea" name="MessageContent" class="form-control" style="height: 300px">
+
+                           
+                        
+                        
+               </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn btn-default btn-file">
+                                <i class="fas fa-paperclip"></i> Dosya
+                                <input type="file" name="attachment">
+                            </div>
+                            <p class="help-block">Max. 32MB</p>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Taslaklara Ekle</button>
+                            <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Gönder</button>
+                        </div>
+                        <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> İptal</button>
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+            }  <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<script>
+    $(function () {
+        //Enable check and uncheck all functionality
+        $('.checkbox-toggle').click(function () {
+            var clicks = $(this).data('clicks')
+            if (clicks) {
+                //Uncheck all checkboxes
+                $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
+                $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
+            } else {
+                //Check all checkboxes
+                $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
+                $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
+            }
+            $(this).data('clicks', !clicks)
+        })
+
+        //Handle starring for glyphicon and font awesome
+        $('.mailbox-star').click(function (e) {
+            e.preventDefault()
+            //detect type
+            var $this = $(this).find('a > i')
+            var glyph = $this.hasClass('glyphicon')
+            var fa = $this.hasClass('fa')
+
+            //Switch states
+            if (glyph) {
+                $this.toggleClass('glyphicon-star')
+                $this.toggleClass('glyphicon-star-empty')
+            }
+
+            if (fa) {
+                $this.toggleClass('fa-star')
+                $this.toggleClass('fa-star-o')
+            }
+        })
+    })</script>
+
+<!-- jQuery -->
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+<!-- Page Script -->
+<!-- AdminLTE for demo purposes -->
+<script src="~/Admin/dist/js/demo.js"></script>

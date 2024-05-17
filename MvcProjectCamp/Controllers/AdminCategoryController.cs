@@ -17,6 +17,7 @@ namespace MvcProjectCamp.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
+        
         public ActionResult Index()
         {
             var categoryValues = cm.GetList();
@@ -35,6 +36,7 @@ namespace MvcProjectCamp.Controllers
           
             if (validationResult.IsValid)
             {
+                
                 cm.CategoryAddBl(category);
                 return RedirectToAction("Index");
             }

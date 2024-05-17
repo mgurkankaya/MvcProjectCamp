@@ -15,17 +15,18 @@ namespace MvcProjectCamp.Controllers
     {
         MessageManager mm = new MessageManager(new EFMessageDal());
         MessageValidator mv = new MessageValidator();
-        public ActionResult Inbox()
+        [Authorize(Roles = "A")]
+        public ActionResult Inbox(string p)
         {
             
-            var value = mm.GetListInbox();
+            var value = mm.GetListInbox(p);
             return View(value);
         }
 
-        public ActionResult Sendbox()
+        public ActionResult Sendbox(string p)
         {
             
-            var value = mm.GetListSendBox();
+            var value = mm.GetListSendBox(p);
             return View(value);
         }
 

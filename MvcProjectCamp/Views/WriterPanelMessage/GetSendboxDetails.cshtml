@@ -1,0 +1,68 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewBag.Title = "GetSendboxDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Action("MessageSideBar", "WriterPanelMessage")
+            <!-- /.col -->
+
+            <div class="col-md-9">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h2 class="card-title">Gönderilen Mesaj İçeriği</h2>
+
+                        <div class="card-tools">
+                            <a class="btn btn-danger" href="/WriterPanelMessage/Sendbox"> <i class="fas fa-reply"></i> Geri</a>
+
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="mailbox-read-info">
+                            <h5>Konu : @Html.ValueFor(x => x.Subject)</h5>
+                            <h6>
+                                From: @Html.ValueFor(x => x.ReceiverMail)
+                                <span class="mailbox-read-time float-right">@Html.ValueFor(x => x.MessageDate)</span>
+                            </h6>
+                        </div>
+                        <!-- /.mailbox-read-info -->
+                        <div class="mailbox-controls with-border text-center">
+
+                            <!-- /.btn-group -->
+
+                        </div>
+                        <!-- /.mailbox-controls -->
+                        <div class="mailbox-read-message">
+
+
+                            <p>
+                                @Html.ValueFor(x => x.MessageContent)
+                            </p>
+
+
+
+
+
+
+
+
+                        </div>
+                        <!-- /.mailbox-read-message -->
+                    </div>
+                    <!-- /.card-body -->
+                    <!-- /.card-footer -->
+                    <div class="card-footer">
+
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+</section>

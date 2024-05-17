@@ -26,15 +26,19 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult Index(Admin admin)
         {
-            
 
-            
+         
+
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName &&
                                                                    x.AdminPassword == admin.AdminPassword);
 
 
             if (adminUserInfo != null)
             {
+                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName,false);
+                Session["AdminUserName"] = adminUserInfo.AdminUserName;
+                
+                Session["AdminName"] = adminUserInfo.AdminUserName;
                 return RedirectToAction("Index", "AdminCategory");
             }
             else
@@ -43,6 +47,13 @@ namespace MvcProjectCamp.Controllers
                 return RedirectToAction("Index");
             }
             
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Headings", "Default");
         }
     }
 }

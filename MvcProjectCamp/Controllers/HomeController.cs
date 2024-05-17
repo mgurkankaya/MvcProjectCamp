@@ -7,9 +7,10 @@ using System.Web.Mvc;
 
 namespace MvcProjectCamp.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-       
+        
         public ActionResult Index()
         {
             return View();
@@ -28,7 +29,12 @@ namespace MvcProjectCamp.Controllers
 
             return View();
         }
+        public ActionResult HomePage()
+        {
+            
 
-      
+            return View();
+        }
+
     }
 }

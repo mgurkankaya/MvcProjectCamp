@@ -1,11 +1,14 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace MvcProjectCamp.Controllers
 {
@@ -14,6 +17,7 @@ namespace MvcProjectCamp.Controllers
         HeadingManager hm = new HeadingManager(new EFHeadingDal());
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         WriterManager wm = new WriterManager(new EFWriterDal());
+       
         public ActionResult Index()
         {
             var value = hm.GetList();
@@ -22,6 +26,7 @@ namespace MvcProjectCamp.Controllers
         [HttpGet]
         public ActionResult AddHeading()
         { 
+
             List<SelectListItem> valueCategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -47,9 +52,27 @@ namespace MvcProjectCamp.Controllers
         [HttpPost]
         public ActionResult AddHeading(Heading heading)
         {
-            heading.HeadingDate =DateTime.Parse(DateTime.Now.ToShortDateString());
-            hm.HeadingAddBl(heading);
-            return RedirectToAction("Index");
+            HeadingValidator headingValidator = new HeadingValidator();
+            ValidationResult validationResult = headingValidator.Validate(heading);
+            if (validationResult.IsValid)
+            {
+
+                heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                hm.HeadingAddBl(heading);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+
+
+
+            
         }
         [HttpGet]
         public ActionResult EditHeading(int id)

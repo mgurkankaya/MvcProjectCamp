@@ -21,7 +21,7 @@ namespace EntityLayer.Concrete
 
         public ICollection<Content> Contents { get; set; }
 
-        public int WriterId { get; set; }
+        public int? WriterId { get; set; }
         public virtual Writer Writer { get; set; } //ÇOK
 
 

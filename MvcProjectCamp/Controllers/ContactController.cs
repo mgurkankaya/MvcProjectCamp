@@ -29,11 +29,11 @@ namespace MvcProjectCamp.Controllers
             return View(value);
         }
 
-        public PartialViewResult ContactSideBar()
+        public PartialViewResult ContactSideBar(string p)
         {
             ViewBag.a1=cm.GetList().Count();
-            ViewBag.a2 = mm.GetListInbox().Count();
-            ViewBag.a3 = mm.GetListSendBox().Count();
+            ViewBag.a2 = mm.GetListInbox(p).Count();
+            ViewBag.a3 = mm.GetListSendBox(p).Count();
             return PartialView();
         }
     }

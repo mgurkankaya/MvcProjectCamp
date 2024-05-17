@@ -1,0 +1,17 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "ListAllContent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Arama Sonucu</h2>
+@foreach (var item in Model)
+{
+ 
+    <a class="text-danger" target="_blank" href="/Content/ContentByHeading/@item.HeadingId">
+        <i class="fas fa-circle">
+        </i>
+        @item.Heading.HeadingName
+    </a>
+    <p><i class="fas fa-angle-double-right mr-2"></i>@item.ContentValue</p>
+}
