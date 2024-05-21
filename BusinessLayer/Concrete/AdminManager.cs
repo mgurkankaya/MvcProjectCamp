@@ -26,7 +26,7 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Admin admin)
         {
-            _adminDal.Update(admin);
+            _adminDal.Delete(admin);
         }
 
         public List<Admin> GetAll()

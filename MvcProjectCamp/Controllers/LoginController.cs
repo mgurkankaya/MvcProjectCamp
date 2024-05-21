@@ -39,7 +39,7 @@ namespace MvcProjectCamp.Controllers
                 Session["AdminUserName"] = adminUserInfo.AdminUserName;
                 
                 Session["AdminName"] = adminUserInfo.AdminUserName;
-                return RedirectToAction("Index", "AdminCategory");
+                return RedirectToAction("Index", "Statistic");
             }
             else
             {

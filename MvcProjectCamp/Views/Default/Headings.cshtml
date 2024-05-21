@@ -94,9 +94,24 @@
                         <li class="nav-item">
                             <a href="/Default/Headings/@item.HeadingId" class="nav-link">
                                 <i class="nav-icon fa fa-angle-right	"></i>
-                                <p>
-                                    @item.HeadingName.Substring(0, 10) ...    <span class="badge badge-danger navbar-badge">            @ViewBag.sayBaslik</span>
-                                </p>
+
+
+                                @if (item.HeadingName.Length > 17)
+                                {
+                                    <p>
+                                        @item.HeadingName.Substring(0, 17) ... <span class="badge badge-danger navbar-badge">   @ViewBag.sayBaslik    </span>
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p>  @item.HeadingName <span class="badge badge-danger navbar-badge">   @ViewBag.sayBaslik    </span> </p>
+                                }
+
+
+
+
+
+
                             </a>
                         </li>
 

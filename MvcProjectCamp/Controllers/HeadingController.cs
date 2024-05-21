@@ -23,6 +23,14 @@ namespace MvcProjectCamp.Controllers
             var value = hm.GetList();
             return View(value);
         }
+        public ActionResult HeadingReport()
+        {
+            var value = hm.GetList();
+            return View(value);
+        }
+
+
+
         [HttpGet]
         public ActionResult AddHeading()
         { 

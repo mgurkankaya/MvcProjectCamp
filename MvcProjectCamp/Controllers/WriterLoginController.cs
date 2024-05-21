@@ -50,7 +50,7 @@ namespace MvcProjectCamp.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Headings", "Default");
         }
     }
 }
